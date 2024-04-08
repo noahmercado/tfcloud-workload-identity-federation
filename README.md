@@ -41,17 +41,7 @@ All GCP APIs required for this solution are documented in [./live/shared.hcl](./
 The Org Policy constraints which could prevent this solution from being deployed are documented in [./live/shared.hcl](./live/shared.hcl#L66-75). By default, `terragrunt run-all apply` will disable each of these org policies
 
 ## How to deploy
-- Fork this repo into your own CE GitLab namespace 
-  - https://gitlab.com/google-cloud-ce/googlers/noahmercado/gitlab-workload-identity-federation
-- In your terminal, follow the below steps:  
 ```bash
-export GITLAB_PROJECT_NAME="tfcloud-workload-identity-federation"
-export GOOGLE_LDAP="INSERT_YOUR_LDAP_HERE"
-
-git clone git@gitlab.com:google-cloud-ce/googlers/${GOOGLE_LDAP}/${GITLAB_PROJECT_NAME}.git
-
-cd ${GITLAB_PROJECT_NAME}
-
 # Build and start the VS Code devcontainer which includes all the required tooling to depoy
 devcontainer build && devcontainer open
 ```
