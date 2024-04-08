@@ -88,6 +88,6 @@ resource "google_service_account_iam_binding" "tfcloud_workspace" {
   role               = "roles/iam.workloadIdentityUser"
 
   members = [
-    "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.tf_cloud.name}/attribute.tfc_workspace_id/${var.tfcloud_workspaces[each.key].workspace_id}"
+    "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.tf_cloud.name}/attribute.tfc_workspace_id/${local.tfcloud_workspaces[each.key].workspace_id}"
   ]
 }
