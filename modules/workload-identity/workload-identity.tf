@@ -15,6 +15,9 @@
 resource "google_iam_workload_identity_pool" "tf_cloud" {
 
   workload_identity_pool_id = "tfcloud-pool-${random_id.random.hex}"
+  display_name              = "Terraform Cloud"
+  description               = "Terraform Cloud Pool for ${var.tfcloud_organization_id}"
+  disabled                  = false
 }
 
 resource "google_iam_workload_identity_pool_provider" "tf_cloud_organization" {
