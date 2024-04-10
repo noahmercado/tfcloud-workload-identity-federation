@@ -41,14 +41,12 @@ All GCP APIs required for this solution are documented in [./live/shared.hcl](./
 The Org Policy constraints which could prevent this solution from being deployed are documented in [./live/shared.hcl](./live/shared.hcl#L66-75). If you need to disable these policies and have the required permissions, you must set `skip = false` in [./live/org-policies/terragrunt.hcl](./live/org-policies/terragrunt.hcl). Then, rerunning `terragrunt run-all apply` will disable each of these org policies.
 
 ## How to deploy
+- Create an API token for use with Terraform Cloud
+  - https://app.terraform.io/app/settings/tokens
 ```bash
 # Build and start the VS Code devcontainer which includes all the required tooling to depoy
 devcontainer build && devcontainer open
 ```
-- Create an API token for use with Terraform Cloud
-  - Modify the below URL so that `${TFC_ORGANIZATION_NAME}` is replaced with the name of your TFC Org
-    - https://app.terraform.io/app/${TFC_ORGANIZATION_NAME}/settings/authentication-tokens
-  - Create your API token
 - Your devcontainer will now build and open a brand new VS Code window. The remaining steps **must** happen within the terminal of that newly create VS Code window
 ```bash
 # Log in to gcloud cli to authenticate Terraform. This should be your Argolis credentials 
