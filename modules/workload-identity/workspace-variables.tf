@@ -28,7 +28,7 @@ resource "tfe_variable" "gcp_run_sa_email" {
   for_each = google_service_account.tfcloud_workspace
 
   key      = "TFC_GCP_RUN_SERVICE_ACCOUNT_EMAIL"
-  value    = each.value.name
+  value    = each.value.email
   category = "env"
 
   workspace_id = local.tfcloud_workspaces[each.key].workspace_id
